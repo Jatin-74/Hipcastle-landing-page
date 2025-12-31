@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    // This allows Next.js to download Google Fonts on Windows
+    turbopackUseSystemTlsCerts: true,
+  },
 };
 
 export default nextConfig;
