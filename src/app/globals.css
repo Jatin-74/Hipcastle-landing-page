@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* Pure White Background, Sharp Black Text */
+    @apply bg-white text-black antialiased;
+  }
+}
+
+/* Elegant Selection Color */
+::selection {
+  @apply bg-gray-200 text-black;
+}
