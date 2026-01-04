@@ -1,26 +1,26 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft } from "lucide-react"; // Removed 'Play' import
+import { ArrowRight, ArrowLeft } from "lucide-react"; 
 import { useRef } from "react";
 
+// UPDATE: Replace these with your files in public/categories/
 const categories = [
-  { id: 1, title: "Waves Tee", category: "Street", image: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=2544&auto=format&fit=crop" },
-  { id: 2, title: "Growth Hoodie", category: "Signature", image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=2680&auto=format&fit=crop" },
-  { id: 3, title: "Heavy Duty", category: "Core", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=2520&auto=format&fit=crop" },
-  { id: 4, title: "New Chapter", category: "Oversized", image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=2515&auto=format&fit=crop" },
-  { id: 5, title: "Unbreakable", category: "Essential", image: "https://images.unsplash.com/photo-1571455786673-9d9d6c194f90?q=80&w=2670&auto=format&fit=crop" },
-  { id: 6, title: "Urban Vest", category: "Summer", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=2572&auto=format&fit=crop" },
-  { id: 7, title: "The Classic", category: "Minimal", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2680&auto=format&fit=crop" },
-  { id: 8, title: "Night Ops", category: "Blackout", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2574&auto=format&fit=crop" },
+  { id: 1, title: "Absolute Growth", category: "Street", image: "/categories/waves.jpg" },
+  { id: 2, title: "Unbreakable", category: "Signature", image: "/categories/hoodie.jpg" },
+  { id: 3, title: "New Chapter", category: "Core", image: "/categories/heavy.jpg" },
+  { id: 4, title: "Purpose", category: "Oversized", image: "/categories/chapter.jpg" },
+  { id: 5, title: "Growth", category: "Essential", image: "/categories/unbreakable.jpg" },
+  { id: 6, title: "Waves", category: "Summer", image: "/categories/vest.jpg" },
+  { id: 7, title: "Magnetize Future", category: "Minimal", image: "/categories/Screenshot 2026-01-04 181258.png" },
+  { id: 8, title: "Progress", category: "Blackout", image: "/categories/Screenshot 2026-01-04 181338.png" },
 ];
 
 export default function Categories() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Scroll Handler
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 300; // Distance to scroll
+      const scrollAmount = 300; 
       scrollRef.current.scrollBy({
         left: direction === 'right' ? scrollAmount : -scrollAmount,
         behavior: "smooth"
@@ -32,7 +32,6 @@ export default function Categories() {
     <section className="py-24 bg-white border-t border-stone-100">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header with Navigation Buttons */}
         <div className="flex items-end justify-between mb-10">
           <div>
             <span className="text-[10px] font-sans font-bold tracking-[0.2em] text-stone-400 uppercase mb-2 block">Curated Vibes</span>
@@ -55,7 +54,6 @@ export default function Categories() {
           </div>
         </div>
 
-        {/* Scrollable Container */}
         <div 
             ref={scrollRef}
             className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar"
@@ -70,18 +68,17 @@ export default function Categories() {
               transition={{ delay: i * 0.1 }}
               className="min-w-[220px] snap-start relative group cursor-pointer"
             >
-              {/* Image Card */}
+        
               <div className="relative aspect-[9/16] bg-stone-100 overflow-hidden rounded-sm">
                 <img 
                     src={item.image} 
                     alt={item.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
-                
-                {/* Gradient Overlay */}
+         
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
 
-                {/* Text Content */}
+               
                 <div className="absolute bottom-4 left-4 z-20">
                     <p className="font-sans text-[9px] font-bold tracking-widest text-stone-300 uppercase mb-1">{item.category}</p>
                     <h3 className="font-serif text-lg text-white leading-none">{item.title}</h3>

@@ -5,17 +5,17 @@ import { useRef } from "react";
 export default function Founder() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 100]); // Parallax Effect
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]); 
 
   return (
     <section id="founder" ref={containerRef} className="py-32 bg-stone-900 text-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         
-        {/* Left: Founder Image with Parallax */}
         <div className="md:col-span-5 relative aspect-[3/4] bg-stone-800 overflow-hidden">
+           {/* UPDATE: Ensure you have an image named 'founder.jpg' in your public folder */}
            <motion.div 
              style={{ y }} 
-             className="absolute inset-0 -top-10 -bottom-10 bg-[url('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-80" 
+             className="absolute inset-0 -top-10 -bottom-10 bg-[url('/founder.jpg')] bg-cover bg-center grayscale opacity-80" 
            />
            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">
               <p className="font-serif italic text-2xl">Avinash Chate</p>
@@ -23,7 +23,6 @@ export default function Founder() {
            </div>
         </div>
 
-        {/* Right: The Story */}
         <motion.div 
           className="md:col-span-7 space-y-10"
           initial={{ opacity: 0, x: 50 }}
