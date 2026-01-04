@@ -17,31 +17,31 @@ export default function Navbar() {
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
         isScrolled
-          ? "bg-stone-900/90 backdrop-blur-xl border-stone-800 py-4 shadow-2xl" // Scrolled: Darker, solid-ish for content reading
-          : "bg-stone-950/20 backdrop-blur-md border-white/10 py-6" // Top: Light tint to fix blending, keeps hero visible
+          ? "bg-stone-900/90 backdrop-blur-xl border-stone-800 py-4 shadow-2xl" 
+          : "bg-stone-950/20 backdrop-blur-md border-white/10 py-6" 
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         
-        {/* LOGO - Serif for Elegance */}
+        {/* Logo */}
         <Link href="/" className="font-serif font-bold text-2xl tracking-tighter text-white">
           HIPCASTLE.
         </Link>
 
-        {/* CENTER LINKS - "Important Sub Headers" */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-12">
           {["Collection", "Manifesto", "Founder"].map((item) => (
             <Link key={item} href={`#${item.toLowerCase()}`} className="group relative">
               <span className="text-xs font-sans font-medium tracking-[0.2em] uppercase text-stone-300 transition-colors group-hover:text-white">
                 {item}
               </span>
-              {/* Elegant Underline Animation */}
+              {/* Underline Animation */}
               <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>
 
-        {/* RIGHT ACTIONS - Login / Cart */}
+        {/* Icons */}
         <div className="flex items-center space-x-8 text-white">
           <button className="hidden md:block text-xs font-bold tracking-[0.15em] uppercase text-stone-300 hover:text-white transition-colors">
             Login
