@@ -27,23 +27,21 @@ export default function ProductGrid() {
 
       <div className="relative w-full">
        
-        {/* RECTIFIED: Removed the white gradient divs that were blocking view on edges */}
+        {/* RECTIFIED: Removed the white gradient divs */}
 
         <motion.div 
-            className="flex gap-6 px-6" // RECTIFIED: Reduced gap for tighter layout
+            className="flex gap-6 px-6"
             animate={{ x: [0, -1000] }} 
             transition={{ 
                 repeat: Infinity, 
-                duration: 10, 
+                duration: 10, // Speed increased to 10
                 ease: "linear" 
             }}
             whileHover={{ animationPlayState: "paused" }} 
         >
-            {/* Original Set */}
             {products.map((product, i) => (
                 <ProductCard key={`${product.id}-${i}`} product={product} />
             ))}
-            {/* Duplicate Set for Infinite Scroll */}
             {products.map((product, i) => (
                 <ProductCard key={`${product.id}-dup-${i}`} product={product} />
             ))}
@@ -56,7 +54,7 @@ export default function ProductGrid() {
 function ProductCard({ product }: { product: any }) {
     return (
         <motion.div 
-            // RECTIFIED: Reduced widths (Mobile: 220px, Desktop: 280px) for better phone alignment
+            // Mobile: 220px, Desktop: 280px
             className="min-w-[220px] md:min-w-[280px] group cursor-pointer relative"
             whileHover={{ scale: 0.98 }}
             transition={{ duration: 0.4 }}
