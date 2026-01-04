@@ -1,9 +1,8 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Plus, ArrowRight } from "lucide-react";
-import { useRef } from "react";
 
-// UPDATE: Replace the filenames below with your actual image names inside public/products/
+// CORRECTED: Local images and updated product details
 const products = [
   { id: 1, name: "Palm in the Dark Blue", color: "Cotton Blend", price: "₹747", image: "/products/Screenshot 2026-01-04 174340.png" },
   { id: 2, name: "Square Abstract", color: "Cotton Blend", price: "₹868", image: "/products/Screenshot 2026-01-04 174432.png" },
@@ -28,10 +27,10 @@ export default function ProductGrid() {
 
       <div className="relative w-full">
        
-        {/* Removed white gradients as requested previously */}
+        {/* RECTIFIED: Removed the white gradient divs that were blocking view on edges */}
 
         <motion.div 
-            className="flex gap-6 px-6" // Reduced gap from gap-8 to gap-6 for better spacing with smaller cards
+            className="flex gap-6 px-6" // RECTIFIED: Reduced gap for tighter layout
             animate={{ x: [0, -1000] }} 
             transition={{ 
                 repeat: Infinity, 
@@ -40,9 +39,11 @@ export default function ProductGrid() {
             }}
             whileHover={{ animationPlayState: "paused" }} 
         >
+            {/* Original Set */}
             {products.map((product, i) => (
                 <ProductCard key={`${product.id}-${i}`} product={product} />
             ))}
+            {/* Duplicate Set for Infinite Scroll */}
             {products.map((product, i) => (
                 <ProductCard key={`${product.id}-dup-${i}`} product={product} />
             ))}
@@ -55,7 +56,7 @@ export default function ProductGrid() {
 function ProductCard({ product }: { product: any }) {
     return (
         <motion.div 
-            // UPDATED WIDTHS HERE: Reduced from 300px/400px to 220px/280px
+            // RECTIFIED: Reduced widths (Mobile: 220px, Desktop: 280px) for better phone alignment
             className="min-w-[220px] md:min-w-[280px] group cursor-pointer relative"
             whileHover={{ scale: 0.98 }}
             transition={{ duration: 0.4 }}
